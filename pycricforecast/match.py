@@ -202,7 +202,6 @@ class Innings:
             temp_array= np.asarray(temp)
             setattr(self,item,temp_array)
             
-        print(self.final_total)
     def plot_innings(self,symbol):
         fig1 =plt.figure(1)
         fig2 =plt.figure(2)

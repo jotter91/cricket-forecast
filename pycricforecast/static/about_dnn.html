@@ -1,0 +1,32 @@
+<html>
+ <head>
+ <title> Cricket Score Predictor : About the First Innings DNN Model </title>
+ </head>
+ <body>
+  <h1> Information about the First Innings DNN Model</h1>
+
+  <p> The aim of this model was to keep things as simple as possible. The purpose is to be able to predict the final first innings score of a T20 match from the current game status  </p> 
+ 
+  <p> There are three variables : number of balls bowled, number of runs, number of wickets. These three variables are used to predict the score at the end of the innings. 
+  This means that the model does not account for the players in each match. For example, the predicted score will the be same regardless if Geoffrey Boycott or David Warner were to arrive at the crease. 
+  Likewise, even if Trevor Chappell is about to bowl the model will assume that runs can be scored.  </p>
+  
+  
+  <p>The model which is used in this tool utilised a Direct Neural Network (DNN) model. The model is implemented through TensorFlow.   </p>
+  
+   
+  <p> The training set of of data consists of over 1000 T20 matches; this is from the very first match in 2003 to February 2022. For each match the number of runs and wickets is added to the data set from delivers 12 (after two overs) up to the 119th delivery.
+  In total there are 192,600 points in this data base. Of those points, 80% were taken to be the training set and the remaining 20% to be used as a test set.  </p> 
+  
+  <p> The figure below shows loss history of the model during training. After 500 epochs the error appears to be asymptomatic at around 16 runs. </p>
+  <img src="/static/first_innings_dnn_images/loss.png" alt="line chart of loss versus epoch"/>
+  
+  <p> The figure on the left hand side shows how the model compares to the test data set. A perfect model would have a one-to-one agreement with test data and hence would produce a straightline plot. 
+  However, one can see that for this model that there is quite a large spread of values. This is most likely due to model having a hard time predicting a score from the first few overs of a game. Things can change quickly!
+  The right hand figure shows a histogram of the different between the model and the test data. A healthy amount of samples are located around the 0 error mark. Although these could be predictions from the 119,118 mark ....   </p>
+  
+  <img src="/static/first_innings_dnn_images/predictions.png" alt="predictions versus true values"/>
+  <img src="/static/first_innings_dnn_images/error.png" alt="histogram of error values"/>
+ 
+ </body>
+</html>
