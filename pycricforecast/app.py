@@ -25,10 +25,13 @@ def dnn_model():
 def send(sum=sum):
     if request.method == 'POST':
         #TODO :check type for inputs
-        runs  = int(request.form['runs'])
-        balls = int(request.form['balls'])
-        wickets = int(request.form['wickets'])
-        model = request.form['model']
+        try:
+            runs  = int(request.form['runs'])
+            balls = int(request.form['balls'])
+            wickets = int(request.form['wickets'])
+            model = request.form['model']
+        except ValueError:
+            return render_template('dnn_model.html')
 
         if model == 'rpb':
             prediction=rpb([])
